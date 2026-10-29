@@ -1,4 +1,4 @@
-//Brute force O(nlogn) , next optimize it to O(n)
+//O(n)
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freq = new HashMap<>();
