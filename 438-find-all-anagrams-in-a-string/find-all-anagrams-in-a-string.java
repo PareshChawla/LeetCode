@@ -10,7 +10,7 @@ class Solution {
         int[] bigArr = new int[26];
         for(int right = 0; right < s.length(); right++) {
             bigArr[s.charAt(right) - 'a']++;
-            while(right - left + 1 > k) {
+            if(right - left + 1 > k) {
                 bigArr[s.charAt(left) - 'a']--;
                 left++;
             }
