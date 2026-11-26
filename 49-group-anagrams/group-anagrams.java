@@ -11,13 +11,7 @@ class Solution {
                 freq.append('#').append(c);
             }
             String signature = freq.toString();
-            if(map.containsKey(signature)) {
-                map.get(signature).add(word);
-            } else {
-                List<String> list = new ArrayList<>();
-                list.add(word);
-                map.put(signature, list);
-            }
+            map.computeIfAbsent(signature, k -> new ArrayList<>()).add(word);
         }
         return new ArrayList<>(map.values());
     }
