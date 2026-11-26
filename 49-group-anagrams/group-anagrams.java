@@ -1,24 +1,24 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> groups = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for(String word: strs) {
-            int[] count = new int[26];
+            int[] arr = new int[26];
             for(int i = 0; i < word.length(); i++) {
-                count[word.charAt(i) - 'a']++;
+                arr[word.charAt(i)- 'a']++;
             }
-            StringBuilder key = new StringBuilder();
-            for(int c: count) {
-            key.append('#').append(c);
+            StringBuilder freq = new StringBuilder();
+            for(int c: arr) {
+                freq.append('#').append(c);
             }
-            String signature = key.toString();
-            if(groups.containsKey(signature)) {
-                groups.get(signature).add(word);
+            String signature = freq.toString();
+            if(map.containsKey(signature)) {
+                map.get(signature).add(word);
             } else {
-                List<String> newGroup = new ArrayList<>();
-                newGroup.add(word);
-                groups.put(signature, newGroup);
+                List<String> list = new ArrayList<>();
+                list.add(word);
+                map.put(signature, list);
             }
         }
-        return new ArrayList<>(groups.values());
+        return new ArrayList<>(map.values());
     }
 }
